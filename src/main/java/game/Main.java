@@ -1,4 +1,4 @@
-package org;
+package game;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.EnumMap;
