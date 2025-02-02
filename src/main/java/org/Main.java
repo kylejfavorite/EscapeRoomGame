@@ -1,15 +1,11 @@
 package org;
-
-
-
-import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Scanner;
 
 public class Main {
     public static void main(final String[] args) {
-
         // instantiates room
         Room room = new Room();
 
@@ -71,14 +67,13 @@ public class Main {
             else if (!input.equalsIgnoreCase("exit")) { // handles incorrect commands
                 System.out.println("Unknown input. Please enter 'look <direction>' or 'exit'.");
             }
-        } while (!input.equalsIgnoreCase("exit")); // repeats loop until user types 'exit'
+        } while (!input.equalsIgnoreCase("exit")); // repeats loop until user types 'quit'
 
         // exit message
         System.out.println("Thanks for playing!");
         scanner.close();
     }
 
-    // TODO: ----------------------------------------------------------- CLASSES AND ENUMS BEGIN HERE
     // enum representing four cardinal directions
     public enum Direction {
         north("to the north"),
@@ -139,13 +134,12 @@ public class Main {
         }
     }
 
+    // Class representing the room
     public static class Room {
-        // this is the logical representation of the "walls" of each room
-        private EnumMap<Direction, Item> walls; // map of directions to items. syntax: <key, value>
+        private EnumMap<Direction, Item> walls; // map of directions to items
 
         // Keeps track of items in separate map not associated with direction
         // This way player can inspect item without specifying direction
-        // TODO: Are we adding items to this map after player "discovers" them via look?
         private Map<String, Item> items = new HashMap<>();
 
         public Room() {
